@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>页面性能分析</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+  * { margin: 0; padding: 0; }
+	button {
+		width: 200px;
+		height: 40px;
+    color: #fff;
+		background: #f24e3e;
+		text-align: center;
+		line-height: 40px;
+		font-size: 14px;
+		border: none;
+		margin: 20px 20px 0;
+	}
+	.u-list .title {
+		line-height: 40px;
+		font-size: 16px;
+		padding:0 20px;
+	}
+	.u-list ul {
+		border: 1px solid #e5e5e5;
+    margin: 0 20px 20px;
+    background: #fff;
+    color: #666;
+    font-size: 14px;
+	}
+	.u-list li {
+		border-bottom: 1px solid #e5e5e5;
+    padding: 10px 20px;
+    line-height: 1.5;
+		list-style: none;
+	}
+	.u-list li:last-child {
+		border: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="m-panel">
+		<button id="get-performance">获取页面性能指标</button>
+		<div class="u-list" id="init-timing"></div>
+		<div class="u-list" id="resource-timing-javascript"></div>
+		<div class="u-list" id="resource-timing-css"></div>	
+		<div class="u-list" id="resource-timing-api"></div>	
+	</div>	
+	<script type="text/javascript" src="./js/panel.js"></script>
+</body>
+</html>
