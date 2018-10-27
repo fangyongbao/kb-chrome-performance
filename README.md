@@ -1,1 +1,1 @@
-#### web页面性能指标分析插件（kb-chrome-performance）
+#### web页面性能指标分析chrome插件（kb-chrome-performance）
