@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "kb-chrome-performance",
 	"version": "1.0.0",
-	"description": "kobe应用页面性能分析",
+	"description": "kobe应用性能分析插件",
 	"icons":
 	{
 		"16": "img/icon.png",
@@ -10,15 +10,14 @@
 		"128": "img/icon.png"
 	},
 	"devtools_page": "devtools.html",
+	"permissions": [
+    "activeTab"
+  ], 
 	"content_scripts": [{
 			"matches": ["<all_urls>"],
-			"js": ["./js/content_scripts.js"],
+			"js": ["js/content_scripts.js"],
 			"run_at": "document_start"
 		}
-	],
-	"permissions":
-	[
-		"declarativeContent"
 	],
 	"web_accessible_resources": ["js/inject.js"],
 	"background":

@@ -1,27 +1,25 @@
 function InitTiming() {
-  let list = [];
-  const {
-    timing,
-  } = window.performance;
-  const dnsTimer = {
+  var list = [];
+  var timing = window.performance.timing;
+  var dnsTimer = {
     key: 'DNS查询耗时',
-    value: `${parseInt(timing.domainLookupEnd - timing.domainLookupStart, 10)}`,
+    value: parseInt(timing.domainLookupEnd - timing.domainLookupStart, 10),
   };
-  const tcpTimer = {
+  var tcpTimer = {
     key: 'TCP链接耗时',
-    value: `${parseInt(timing.connectEnd - timing.connectStart, 10)}`,
+    value: parseInt(timing.connectEnd - timing.connectStart, 10),
   };
-  const requestTimer = {
+  var requestTimer = {
     key: 'request请求耗时',
-    value: `${parseInt(timing.responseEnd - timing.requestStart, 10)}`,
+    value: parseInt(timing.responseEnd - timing.requestStart, 10),
   };
-  const domReadyTimer = {
+  var domReadyTimer = {
     key: 'DOM Ready总耗时',
-    value: `${parseInt(timing.domContentLoadedEventEnd - timing.navigationStart, 10)}`,
+    value: parseInt(timing.domContentLoadedEventEnd - timing.navigationStart, 10),
   };
-  const onLoadTimer = {
+  var onLoadTimer = {
     key: '网页加载总耗时',
-    value: `${parseInt(timing.loadEventEnd - timing.navigationStart, 10)}`,
+    value: parseInt(timing.loadEventEnd - timing.navigationStart, 10),
   };
 
   list = list.concat(
@@ -31,7 +29,7 @@ function InitTiming() {
     domReadyTimer,
     onLoadTimer,
   );
-  const values = list.map((item) => parseInt(item.value, 10));
+  var values = list.map((item) => parseInt(item.value, 10));
   console.log('------页面初始化------');
   console.table(list);
   return {
@@ -42,17 +40,17 @@ function InitTiming() {
 
 function ResourceTiming(assets) {
   try {
-    const resources = assets || window.performance.getEntries();
-    const javascript = [];
-    const css = [];
-    const api = [];
-    for (let i = resources.length - 1; i > 0; i--) {
-      const temp = {};
-      const item = resources[i];
+    var resources = assets || window.performance.getEntries();
+    var javascript = [];
+    var css = [];
+    var api = [];
+    for (var i = resources.length - 1; i > 0; i--) {
+      var temp = {};
+      var item = resources[i];
       temp.key = item.name;
-      temp.requestTiming = `${parseInt(item.responseEnd - item.requestStart, 10)}`;
-      temp.connectTiming = `${parseInt(item.connectEnd - item.connectStart, 10)}`;
-      temp.value = `${parseInt(temp.requestTiming, 10) + parseInt(temp.connectTiming, 10)}`;
+      temp.requestTiming = parseInt(item.responseEnd - item.requestStart, 10);
+      temp.connectTiming = parseInt(item.connectEnd - item.connectStart, 10);
+      temp.value = parseInt(temp.requestTiming, 10) + parseInt(temp.connectTiming, 10);
       if (item.initiatorType === 'script') {
         javascript.push(temp);
       } else if (item.initiatorType === 'link') {

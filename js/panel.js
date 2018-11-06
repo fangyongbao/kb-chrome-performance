@@ -1,6 +1,7 @@
 // 检测jQuery
 document.getElementById('get-performance').addEventListener('click', function(){
 	chrome.devtools.inspectedWindow.eval('window.InitTiming();', function(res, isException) {
+		console.log(res);
 		var $content = document.getElementById('init-timing');
 		$content.innerHTML = renderInitTiming('渲染耗时', res.list || []);
 	});

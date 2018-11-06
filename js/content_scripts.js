@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('content-script.js执行了');
+  console.log('content-script.js excute');
   injectCustomJs();
 });
 
@@ -12,5 +12,5 @@ function injectCustomJs(jsPath) {
   console.log(chrome.extension.getURL(jsPath));
 	temp.src = chrome.extension.getURL(jsPath);
   document.body.appendChild(temp);
-  console.log('inject.js注入了');
+  console.log('inject.js inject');
 }
